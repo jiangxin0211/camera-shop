@@ -5,6 +5,9 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import '@/assets/css/set.css'
+import '@/assets/js/rem.js'
+
 new Vue({
   router,
   store,
