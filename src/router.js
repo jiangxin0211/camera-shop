@@ -4,11 +4,17 @@ import Home from './views/Home.vue'
 import Category from './views/Category.vue'
 import Cart from './views/Cart.vue'
 import Profile from './views/Profile.vue'
+import Test from './views/Test.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/test',
+      name: 'test',
+      component: Test
+    },
     {
       path: '/',
       name: 'home',
