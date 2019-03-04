@@ -46,7 +46,7 @@ export default{
           password: this.registPassword
         }
       }).then(res => {
-          if (res.data.code === 200) {
+          if (res.data.code == 200) {// 使用===会注册失败
               this.$toast.success('注册成功')
               this.registUsername = this.registPassword = '';
           } else {
