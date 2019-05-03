@@ -61,7 +61,7 @@
         this.$toast.success('进入付款页面');
       },
       delCart(id, index){
-        // 删除数据库中的数据(同学自己完成)，如果删除成功，进入回调函数，在回调函数中，如下代码
+        // 删除数据库中的数据，如果删除成功，进入回调函数，在回调函数中，如下代码
         this.pruductList.splice(index, 1);
       }
     }
