@@ -5,6 +5,8 @@ import Category from './views/Category.vue'
 import Cart from './views/Cart.vue'
 import Profile from './views/Profile.vue'
 import Test from './views/Test.vue'
+import Detail from './views/Detail.vue'
+import FooterBar from './components/FooterBar.vue'
 
 Vue.use(Router)
 
@@ -18,7 +20,11 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      // component: Home
+      components: {
+        default: Home,
+        'footer-bar': FooterBar
+      }
     },
     // {
     //   path: '/about',
@@ -31,17 +37,31 @@ export default new Router({
     {
       path: '/category',
       name: 'category',
-      component: Category
+      components: {
+        default: Category,
+        'footer-bar': FooterBar
+      }
     },
     {
       path: '/cart',
       name: 'cart',
-      component: Cart
+      components: {
+        default: Cart,
+        'footer-bar': FooterBar
+      }
     },
     {
       path: '/profile',
       name: 'profile',
-      component: Profile
+      components: {
+        default: Profile,
+        'footer-bar': FooterBar
+      }
+    },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      component: Detail
     }
   ]
 })
