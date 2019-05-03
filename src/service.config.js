@@ -9,8 +9,8 @@ const URL = {
     getTypes: SERVERURL + 'type/getTypes',
     getProductsByType: SERVERURL + 'product/getProductsByType',
     getDetail: SERVERURL + 'product/getDetail',
-    // addCart: SERVERURL + 'cart/addCart',
-    // getCart: SERVERURL + 'cart/getCart'
+    addCart: SERVERURL + 'cart/addCart',
+    getCart: SERVERURL + 'cart/getCart'
 };
 
 export default URL;// 统一后台接口的配置

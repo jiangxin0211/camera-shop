@@ -64,15 +64,15 @@
                             userId: this.userInfo._id
                         }
                     })
-                        .then(res => {
-                            // console.log(res);
-                            if (res.data.code == 200) {
-                                this.$toast.success(res.data.message);
-                            }
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
+                    .then(res => {
+                        // console.log(res);
+                        if (res.data.code == 200) {
+                            this.$toast.success(res.data.message);
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
                 }
             }
         }
