@@ -7,7 +7,7 @@
           <van-field label="密码" type="password" placeholder="请输入密码" required clearable v-model="loginPassword"></van-field>
         </van-cell-group>
         <div>
-          <van-button type="primary" size="large">登录</van-button>
+          <van-button @click="loginHandler" type="primary" size="large">登录</van-button>
         </div>
       </van-tab>
       <van-tab title="注册">
@@ -26,6 +26,7 @@
 <script>
 import axios from 'axios';
 import url from '@/service.config.js';
+import { mapActions } from "vuex";
 export default{
   data () {
     return {
@@ -36,6 +37,7 @@ export default{
     }
   },
   methods: {
+    ...mapActions(["loginAction"]),
     // 注册
     registHandler () {
       axios({
@@ -56,6 +58,40 @@ export default{
       }).catch(err => {
           console.log(err);
           this.$toast.fail('注册失败')
+      })
+    },
+    // 登录
+    loginHandler() {
+      axios({
+        url: url.loginUser,
+        method: 'post',
+        data: {
+          userName: this.loginUsername,
+          password: this.loginPassword
+        }
+      }).then(res => {
+        if (res.data.code == 200) {
+          // 模拟
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+            }, 1000);
+          }).then(() => {
+              this.$toast.success("登录成功");
+              // 保存登录状态
+              this.loginAction(res.data.userInfo);
+              this.$router.go(-1);
+           }).catch(err => {
+              this.$toast.fail("保存登录状态失败");
+              console.log(err);
+            });
+        } else {
+          this.$toast.fail('登录失败')
+        }
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+        this.$toast.fail('登录失败')
       })
     }
   }
