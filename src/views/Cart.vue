@@ -46,14 +46,14 @@
             userId: this.userInfo._id
           }
         })
-                .then(res => {
-                  for (let item of res.data) {
-                    this.pruductList.push(item.productId);
-                  }
-                })
-                .catch(err => {
-                  console.log(err);
-                });
+        .then(res => {
+          for (let item of res.data) {
+            this.pruductList.push(item.productId);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
       }
     },
     methods: {

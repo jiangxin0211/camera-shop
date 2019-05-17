@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="profile">
     <van-tabs>
       <van-tab title="登录">
         <van-cell-group>
@@ -20,6 +20,14 @@
         </div>
       </van-tab>
     </van-tabs>
+    <ul class="order">
+      <li @click="goError">个人中心</li>
+      <li @click="goError">我的订单</li>
+      <li @click="goError">会员权益</li>
+      <li @click="goError">积分计算</li>
+      <li @click="goError">每日福利</li>
+      <li @click="goError">我的地址</li>
+    </ul>
   </div>
 </template>
 
@@ -38,6 +46,9 @@ export default{
   },
   methods: {
     ...mapActions(["loginAction"]),
+    goError(){
+      this.$toast.fail("跳转失败");
+    },
     // 注册
     registHandler () {
       axios({
@@ -97,3 +108,14 @@ export default{
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+  .order
+    padding: 20px;
+    li
+      position: relative;
+      padding: 10px 0 10px;
+      font-size: 18px;
+      color: #323233;
+      border-bottom: 1px solid #ccc;
+</style>
